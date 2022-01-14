@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int t;
+  cin >> t;
+  vector<string>ans;
+  
+  while (t--)
+  {
+        int d_dsa,d_toc,d_dm;
+        cin>>d_dsa>>d_toc>>d_dm;
+        int s_dsa,s_toc,s_dm;
+        cin>>s_dsa>>s_toc>>s_dm;
+        
+        int s1 = d_dsa+d_toc+d_dm;
+        int s2 = s_dsa+s_toc+s_dm;
+    
+        if(s1>s2){
+            ans.push_back("Dragon");
+        }
+        else if(s1<s2){
+            ans.push_back("Sloth");
+        }
+        else if(s1==s2){
+            
+            if(d_dsa>s_dsa){
+                 ans.push_back("Dragon");
+            }
+            else if(d_dsa<s_dsa)
+            ans.push_back("Sloth");
+            else{
+                if(d_toc>s_toc)
+                 ans.push_back("Dragon");
+            
+                else if(d_toc<s_toc)
+                ans.push_back("Sloth");
+            
+                else
+                     ans.push_back("Tie");
+            }
+        }
+    
+  }
+  for(auto &x : ans ){
+      cout<<x<<endl;
+  }
+  
+  return 0;
+}
